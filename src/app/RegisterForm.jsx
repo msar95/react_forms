@@ -16,32 +16,37 @@ export class RegisterForm extends React.Component {
 
     handleChange(event) {
         this.setState({
-            name : event.target.value
+            name: event.target.value
         })
     }
 
     handleTshirtSizeChange(event) {
         this.setState({
-            tShirtSize : event.target.value
+            tShirtSize: event.target.value
         })
     }
 
     handleLunchTick(event) {
         this.setState({
-            lunch : event.target.checked
+            lunch: event.target.checked
         })
-    
+
     }
     render() {
         return (
             <form>
-                <input type="text"
-                    value={this.state.name} //Kontrolle von React App -> bedeutet auch das ohne onChange Listener kann default Text noch nicth verändert werden
-                    onChange={this.handleChange}
-                />
+                <label>Name:
+                    <input type="text"
+                            placeholder="Max Mustermann..."
+                        value={this.state.name} //Kontrolle von React App -> bedeutet auch das ohne onChange Listener kann default Text noch nicth verändert werden
+                        onChange={this.handleChange}
+                    />
+                </label>
                 <br></br>
                 <br></br>
+                <label htmlFor="tShirtSelect">Wähle deine T-Shirt Größe</label>
                 <select
+                    id="tShirtSelect"
                     value={this.state.tShirtSize}
                     onChange={this.handleTshirtSizeChange}
                 >
@@ -52,13 +57,13 @@ export class RegisterForm extends React.Component {
                     <option value="m-m">M-M</option>
                     <option value="m-l">M-L</option>
                 </select>
-                <br></br>
-                <br></br>
-                <h3>Would you like to buy a demburger?</h3>
+                <br />
+                <label>Willst du am Mittagessen teilnehmen?
                 <input type="checkbox"
                     checked={this.state.lunch}
                     onChange={this.handleLunchTick}
                 />
+                </label>
             </form>
         )
     }
