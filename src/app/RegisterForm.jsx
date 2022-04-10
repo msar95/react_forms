@@ -13,12 +13,7 @@ export class RegisterForm extends React.Component {
     }
 
     handleChange(event) {
-        let value;
-        if(event.target.name === 'lunch'){
-            value = event.target.checked;
-        } else {
-            value = event.target.value;
-        }
+        const value = (event.target.name==='lunch') ? event.target.checked : event.target.value;
         this.setState({
             [event.target.name]: value
         })
