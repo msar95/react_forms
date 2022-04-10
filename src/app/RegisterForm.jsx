@@ -30,8 +30,8 @@ export class RegisterForm extends React.Component {
         this.setState({
             lunch: event.target.checked
         })
-
     }
+    
     render() {
         return (
             <form>
