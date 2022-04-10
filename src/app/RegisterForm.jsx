@@ -10,34 +10,27 @@ export class RegisterForm extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this); // set und this Stolperfall -> andere Schreibweise property in constructor an Instanz binden sodass immer das "richtige" this ausgewählt wird
-        this.handleTshirtSizeChange = this.handleTshirtSizeChange.bind(this);
-        this.handleLunchTick = this.handleLunchTick.bind(this);
     }
 
     handleChange(event) {
+        let value;
+        if(event.target.name === 'lunch'){
+            value = event.target.checked;
+        } else {
+            value = event.target.value;
+        }
         this.setState({
-            name: event.target.value
+            [event.target.name]: value
         })
     }
 
-    handleTshirtSizeChange(event) {
-        this.setState({
-            tShirtSize: event.target.value
-        })
-    }
-
-    handleLunchTick(event) {
-        this.setState({
-            lunch: event.target.checked
-        })
-    }
-    
     render() {
         return (
             <form>
                 <label>Name:
                     <input type="text"
-                            placeholder="Max Mustermann..."
+                        name="name"
+                        placeholder="Max Mustermann..."
                         value={this.state.name} //Kontrolle von React App -> bedeutet auch das ohne onChange Listener kann default Text noch nicth verändert werden
                         onChange={this.handleChange}
                     />
@@ -47,8 +40,9 @@ export class RegisterForm extends React.Component {
                 <label htmlFor="tShirtSelect">Wähle deine T-Shirt Größe</label>
                 <select
                     id="tShirtSelect"
+                    name="tShirtSize"
                     value={this.state.tShirtSize}
-                    onChange={this.handleTshirtSizeChange}
+                    onChange={this.handleChange}
                 >
                     <option value="w-s">W-S</option>
                     <option value="w-m">W-M</option>
@@ -59,10 +53,11 @@ export class RegisterForm extends React.Component {
                 </select>
                 <br />
                 <label>Willst du am Mittagessen teilnehmen?
-                <input type="checkbox"
-                    checked={this.state.lunch}
-                    onChange={this.handleLunchTick}
-                />
+                    <input type="checkbox"
+                        name="lunch"
+                        checked={this.state.lunch}
+                        onChange={this.handleChange}
+                    />
                 </label>
             </form>
         )
