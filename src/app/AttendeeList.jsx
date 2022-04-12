@@ -7,15 +7,28 @@ export class AttendeeList extends React.Component {
         const attendeeList = this.props.attendees.map((v, index) => {
             const key = `attende-${index}`;
             return (
-                <li key={key}>{v.name}</li>
+                <tr key={key}>
+                    <td>{v.name}</td>
+                    <td>{v.tShirtSize}</td>
+                    <td><input type="checkbox" checked={v.lunch}></input></td>
+                </tr>
             );
         })
         return (
             <div>
-                <p>Attendeelist</p>
-                <ul>{attendeeList}</ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>T-Shirt-Größe</th>
+                            <th>Bleibt zum Mittagessen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {attendeeList}
+                    </tbody>
+                </table>
             </div>
-
         )
     }
 }
