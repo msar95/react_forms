@@ -1,8 +1,8 @@
 import React from "react";
 
-import { LunchInput } from "./controlled components/LunchInput";
-import { NameInput } from "./controlled components/NameInput";
-import { SizeInput } from "./controlled components/SizeInput";
+import { LunchInput } from "./formElements/LunchInput";
+import { NameInput } from "./formElements/NameInput";
+import { SizeInput } from "./formElements/SizeInput";
 
 const emptyForm = {
     name: "",
