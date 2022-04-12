@@ -40,13 +40,16 @@ export class RegisterForm extends React.Component {
         if (!this.validateName()) {
             this.setState({
                 nameError:true,
-                style: { backgroundColor: "red" }
+                style: { backgroundColor: "red" },
+                placeholder: "Error"
             })
         } else {
             this.setState({
                 nameError:false,
                 style: { backgroundColor: "white" }
+
             })
+
         }
     }
 
@@ -68,6 +71,7 @@ export class RegisterForm extends React.Component {
                         onChange={this.handleChange}
                         onBlur={this.handleBlur}
                         style={this.state.style}
+                        placeholder={this.state.placeholder}
                     />
                     <SizeInput
                         value={this.state.tShirtSize}
