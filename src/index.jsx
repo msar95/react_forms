@@ -6,6 +6,6 @@ import { App }  from "./app/App"
 
 const entryPoint = document.getElementById("entry-point");
 
-ReactDOM.render(
-    <App/>,entryPoint
-);
+const root = ReactDOM.createRoot(entryPoint);
+
+root.render(<App/>);
