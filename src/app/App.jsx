@@ -2,6 +2,8 @@ import React from "react";
 import { RegisterForm } from "./RegisterForm";
 import { AttendeeList } from "./AttendeeList";
 import { RedBorder } from "./wrapperComponents/RedBorder";
+import { Tab } from "./wrapperComponents/Tab";
+import { TabController } from "./wrapperComponents/TabController";
 
 const mockAttendees = [
     {
@@ -45,17 +47,15 @@ export class App extends React.Component {
     render() {
         return (
             <div>
-                <RedBorder>
-                    <h1>Anmeldeformular für ein React-Workshop</h1>
-                </RedBorder>
-
-                <RegisterForm onSubmit={this.handleSubmit} />
-                <RedBorder>
-                    <h2>Teilnehmendenliste</h2>
-                </RedBorder>
-                <AttendeeList attendees={this.state.attendeeList} />
+                <TabController>
+                    <Tab headline={'Registrierung'}>
+                        <RegisterForm onSubmit={this.handleSubmit} />
+                    </Tab>
+                    <Tab headline={'Teilnehmendenliste'}>
+                        <AttendeeList attendees={this.state.attendeeList} />
+                    </Tab>
+                </TabController>
             </div>
-
         );
     }
 }
