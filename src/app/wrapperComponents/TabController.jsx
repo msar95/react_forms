@@ -19,10 +19,16 @@ export class TabController extends React.Component {
 
     render() {
         const tabSelection = this.props.children.map((tab, index) => {
+            const key = `tab-${index}`;
+
+            const content = index === this.state.activeTab ? //prüft ob aktuell ausgewählter tab === index? wenn ja mach den button ausgefüllt und wenn nicht mach ihn nicht ausgefüllt
+                (<b>{tab.props.headline}</b>) :
+                (<i>{tab.props.headline}</i>);
+
             return (
-                <li key={index}>
-                    <a href="#">
-                        <b onClick={() => {this.switchTab(index)}}>{tab.props.headline}</b>
+                <li key={key}>
+                    <a href="#" onClick={() => {this.switchTab(index)}}>
+                        {content};
                     </a>
                 </li>) //# bedeutet das auf der Seite geblieben wird, verhindert das Brwoser nach "link sucht"
         });
