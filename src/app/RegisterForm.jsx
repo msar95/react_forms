@@ -6,7 +6,7 @@ import { SizeInput } from "./formElements/SizeInput";
 
 const emptyForm = {
     name: "",
-    tShirtSize: "w-l",
+    tShirtSize: "W-S",
     lunch: false,
     formSubmitted: false,
     nameError: false
