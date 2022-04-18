@@ -28,7 +28,7 @@ export class TabController extends React.Component {
             return (
                 <li key={key}>
                     <a href="#" onClick={() => {this.switchTab(index)}}>
-                        {content};
+                        {content}
                     </a>
                 </li>) //# bedeutet das auf der Seite geblieben wird, verhindert das Brwoser nach "link sucht"
         });
