@@ -13,7 +13,7 @@ export class TabController extends React.Component {
 
     switchTab(newIndex) {
         this.setState({
-            activeTab : newIndex
+            activeTab: newIndex
         });
     }
 
@@ -27,20 +27,20 @@ export class TabController extends React.Component {
 
             return (
                 <li key={key}>
-                    <a href="#" onClick={() => {this.switchTab(index)}}>
+                    <a href="#" onClick={() => { this.switchTab(index) }}>
                         {content}
                     </a>
                 </li>) //# bedeutet das auf der Seite geblieben wird, verhindert das Brwoser nach "link sucht"
         });
         return (
-            <div>
+            <React.Fragment>
                 <nav>
                     <ul>
                         {tabSelection}
                     </ul>
                 </nav>
                 {this.props.children[this.state.activeTab]}
-            </div>
+            </React.Fragment>
         )
     }
 }

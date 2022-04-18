@@ -70,7 +70,7 @@ export class RegisterForm extends React.Component {
     render() {
         if (!this.state.formSubmitted) {
             return (
-                <div>
+                <React.Fragment>
                     <NameInput
                         value={this.state.name}
                         onChange={this.handleChange}
@@ -85,14 +85,14 @@ export class RegisterForm extends React.Component {
                         value={this.state.lunch}
                         onChange={this.handleChange} />
                     <button onClick={this.handleSubmit}>Anmelden</button>
-                </div>
+                </React.Fragment>
             )
         } else {
             return (
-                <div>
+                <React.Fragment>
                     <h1>Du hast dich erfolgreich zum Event angemeldet!</h1>
                     <button onClick={this.handleReset}>Weitere Person hinzfügen</button>
-                </div>
+                </React.Fragment>
             )
 
         }

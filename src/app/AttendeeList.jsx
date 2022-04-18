@@ -15,7 +15,7 @@ export class AttendeeList extends React.Component {
             );
         })
         return (
-            <div>
+            <React.Fragment>
                 <table>
                     <thead>
                         <tr>
@@ -28,7 +28,7 @@ export class AttendeeList extends React.Component {
                         {attendeeList}
                     </tbody>
                 </table>
-            </div>
+            </React.Fragment>
         )
     }
 }

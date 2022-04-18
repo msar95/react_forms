@@ -46,7 +46,7 @@ export class App extends React.Component {
     };
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <TabController>
                     <Tab headline={'Registrierung'}>
                         <RegisterForm onSubmit={this.handleSubmit} />
@@ -55,7 +55,7 @@ export class App extends React.Component {
                         <AttendeeList attendees={this.state.attendeeList} />
                     </Tab>
                 </TabController>
-            </div>
+            </React.Fragment>
         );
     }
 }
