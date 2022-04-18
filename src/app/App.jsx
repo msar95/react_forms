@@ -21,13 +21,33 @@ const mockAttendees = [
 ]
 
 export class App extends React.Component {
+    constructor(props) { // Implementieren des constructors damit state genutzt werden kann um neueAttendees an die AttendeeList übergeben werden können
+        super(props);
+
+        this.state = {
+            attendeeList : mockAttendees
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleSubmit(newAttendee){
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                attendeeList : [
+                    ...prevState.attendeeList,
+                    newAttendee
+                ]
+            }
+        })
+
+    };
     render() {
         return (
             <div>
                 <h1>Anmeldeformular für ein React-Workshop</h1>
-                <RegisterForm/> 
+                <RegisterForm onSubmit={this.handleSubmit}/> 
                 <h2>Teilnehmendenliste</h2>
-                <AttendeeList attendees={mockAttendees}/>
+                <AttendeeList attendees={this.state.attendeeList}/>
             </div>
 
         );

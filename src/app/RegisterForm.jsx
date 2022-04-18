@@ -47,16 +47,21 @@ export class RegisterForm extends React.Component {
             this.setState({
                 nameError:false,
                 style: { backgroundColor: "white" }
-
             })
 
         }
     }
 
-    handleSubmit() {
+    handleSubmit() { //Wird beim Abschicken des Formulars ausgeführt
+        const {name, tShirtSize, lunch} = this.state; //object destructuring um nur an die 3 relevanten properties zu kommen und nicht noch die booleans formSubmitted etc
+        this.props.onSubmit({ // schnell Zuweisung Objekt -> property name : value name 
+            name,
+            tShirtSize,
+            lunch
+        });
         this.setState({
             formSubmitted: true
-        })
+        });
     }
     handleReset() {
         this.setState(emptyForm);
