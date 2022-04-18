@@ -1,4 +1,5 @@
 import React from "react";
+import { RedBorder } from "./RedBorder";
 
 export class TabController extends React.Component {
     constructor(props) {
@@ -34,12 +35,15 @@ export class TabController extends React.Component {
         });
         return (
             <React.Fragment>
-                <nav>
-                    <ul>
-                        {tabSelection}
-                    </ul>
-                </nav>
-                {this.props.children[this.state.activeTab]}
+                <RedBorder>
+                    <nav>
+                        <ul>
+                            {tabSelection}
+                        </ul>
+                    </nav>
+                    {this.props.children[this.state.activeTab]}
+                </RedBorder>
+
             </React.Fragment>
         )
     }
