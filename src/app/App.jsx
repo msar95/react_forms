@@ -1,6 +1,7 @@
 import React from "react";
 import { RegisterForm } from "./RegisterForm";
 import { AttendeeList } from "./AttendeeList";
+import { RedBorder } from "./wrapperComponents/RedBorder";
 
 const mockAttendees = [
     {
@@ -16,7 +17,7 @@ const mockAttendees = [
     {
         name: "Diana Priince",
         tShirtSize: "W-S",
-        lunch : false
+        lunch: false
     }
 ]
 
@@ -25,15 +26,15 @@ export class App extends React.Component {
         super(props);
 
         this.state = {
-            attendeeList : mockAttendees
+            attendeeList: mockAttendees
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleSubmit(newAttendee){
+    handleSubmit(newAttendee) {
         this.setState(prevState => {
             return {
                 ...prevState,
-                attendeeList : [
+                attendeeList: [
                     ...prevState.attendeeList,
                     newAttendee
                 ]
@@ -44,10 +45,15 @@ export class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Anmeldeformular für ein React-Workshop</h1>
-                <RegisterForm onSubmit={this.handleSubmit}/> 
-                <h2>Teilnehmendenliste</h2>
-                <AttendeeList attendees={this.state.attendeeList}/>
+                <RedBorder>
+                    <h1>Anmeldeformular für ein React-Workshop</h1>
+                </RedBorder>
+
+                <RegisterForm onSubmit={this.handleSubmit} />
+                <RedBorder>
+                    <h2>Teilnehmendenliste</h2>
+                </RedBorder>
+                <AttendeeList attendees={this.state.attendeeList} />
             </div>
 
         );

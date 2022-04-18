@@ -91,7 +91,7 @@ export class RegisterForm extends React.Component {
             return (
                 <div>
                     <h1>Du hast dich erfolgreich zum Event angemeldet!</h1>
-                    <button onClick={this.handleReset}>Zurücksetzen des Formulars</button>
+                    <button onClick={this.handleReset}>Weitere Person hinzfügen</button>
                 </div>
             )
 
